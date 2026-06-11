@@ -3,235 +3,329 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Narrativa - About</title>
+<title>About - Narrativa</title>
 
-    <style>
-        *{box-sizing:border-box}
+<style>
 
-        body{
-            margin:0;
-            font-family:'Segoe UI',Arial,sans-serif;
-            background:#f7efe3;
-            color:#2b1d14;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        .navbar{
-            width:100%;
-            padding:20px 70px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            background:#2b1d14;
-            position:sticky;
-            top:0;
-            z-index:1000;
-        }
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f7efe3;
+color:#2b1d14;
+}
 
-        .logo{
-            font-size:32px;
-            font-weight:900;
-            color:#f2c879;
-        }
+.navbar{
+width:100%;
+padding:20px 70px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#2b1d14;
+position:sticky;
+top:0;
+z-index:1000;
+}
 
-        .nav-links a{
-            color:#f8ead5;
-            text-decoration:none;
-            margin-left:22px;
-            font-size:14px;
-            font-weight:700;
-        }
+.logo{
+font-size:32px;
+font-weight:900;
+color:#f2c879;
+}
 
-        .nav-links a:hover{color:#f2c879}
+.nav-links a{
+text-decoration:none;
+color:white;
+margin-left:20px;
+font-weight:600;
+}
 
-        .hero{
-            padding:60px 70px 140px;
-            text-align:center;
-            background:
-            radial-gradient(circle at top left, rgba(242,200,121,0.35), transparent 35%),
-            linear-gradient(135deg,#f7efe3,#ead7bc);
-        }
+.nav-links a:hover{
+color:#f2c879;
+}
 
-        .badge{
-            display:inline-block;
-            padding:10px 18px;
-            border-radius:999px;
-            background:#fff8ec;
-            color:#8b5e34;
-            border:1px solid #e1bd82;
-            font-weight:800;
-            margin-bottom:18px;
-        }
+.hero{
+height:85vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+background:
+linear-gradient(rgba(43,29,20,.75),rgba(43,29,20,.75)),
+url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+}
 
-        .hero h1{
-            font-size:56px;
-            margin:0 0 15px;
-        }
+.hero-content{
+max-width:850px;
+}
 
-        .hero p{
-            max-width:750px;
-            margin:auto;
-            color:#6b4b35;
-            font-size:18px;
-            line-height:1.9;
-        }
+.hero h1{
+font-size:72px;
+color:white;
+margin-bottom:20px;
+}
 
-        .about-section{
-            padding:70px;
-        }
+.hero p{
+font-size:20px;
+line-height:2;
+color:#f8ead5;
+}
 
-        .about-card{
-            max-width:1050px;
-            margin:auto;
-            background:white;
-            padding:40px;
-            border-radius:32px;
-            border:1px solid #ead7bc;
-            box-shadow:0 18px 40px rgba(43,29,20,0.08);
-            line-height:1.9;
-            font-size:17px;
-            color:#6b4b35;
-        }
+.about{
+padding:100px 70px;
+}
 
-        .about-card h2{
-            margin-top:0;
-            color:#2b1d14;
-            font-size:36px;
-        }
+.about-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
 
-        .students-section{
-         padding:0 70px 90px;
-         margin-top:-120px;
-           }
+.about-image img{
+width:100%;
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
 
-        .section-title{
-            text-align:center;
-            font-size:42px;
-            font-weight:900;
-            margin-bottom:45px;
-            color:#2b1d14;
-        }
+.about-text h2{
+font-size:48px;
+margin-bottom:25px;
+}
 
-        .students-grid{
-            display:grid;
-            grid-template-columns:repeat(4,1fr);
-            gap:25px;
-        }
+.about-text p{
+line-height:2;
+color:#6b4b35;
+font-size:17px;
+}
 
-        .student-card{
-            background:white;
-            padding:35px 25px;
-            border-radius:30px;
-            text-align:center;
-            border:1px solid #ead7bc;
-            box-shadow:0 18px 40px rgba(43,29,20,0.08);
-            transition:0.3s;
-        }
+.features{
+padding:0 70px 100px;
+}
 
-        .student-card:hover{
-            transform:translateY(-6px);
-        }
+.section-title{
+text-align:center;
+font-size:48px;
+margin-bottom:50px;
+}
 
-        .student-number{
-            width:82px;
-            height:82px;
-            margin:auto;
-            border-radius:50%;
-            background:#2b1d14;
-            color:#f2c879;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            font-weight:900;
-            font-size:18px;
-            margin-bottom:20px;
-        }
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+max-width:1200px;
+margin:auto;
+}
 
-        .student-card h3{
-            margin:0 0 12px;
-            font-size:22px;
-            color:#2b1d14;
-        }
+.feature-card{
+background:white;
+padding:35px;
+border-radius:30px;
+border:1px solid #ead7bc;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.3s;
+}
 
-        .student-card p{
-            color:#6b4b35;
-            line-height:1.7;
-            font-size:15px;
-            margin:0;
-        }
+.feature-card:hover{
+transform:translateY(-8px);
+}
 
-        .footer{
-            text-align:center;
-            padding:25px;
-            background:#2b1d14;
-            color:#f8ead5;
-        }
+.icon{
+font-size:40px;
+margin-bottom:15px;
+}
 
-        @media(max-width:1000px){
-            .students-grid{grid-template-columns:1fr}
-            .nav-links{display:none}
-            .hero h1{font-size:42px}
-        }
-    </style>
+.feature-card h3{
+margin-bottom:15px;
+}
+
+.feature-card p{
+color:#6b4b35;
+line-height:1.8;
+}
+
+.tech{
+background:#2b1d14;
+padding:100px 70px;
+text-align:center;
+}
+
+.tech h2{
+color:white;
+font-size:48px;
+margin-bottom:40px;
+}
+
+.tech-grid{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.tech-item{
+padding:15px 25px;
+background:#f2c879;
+border-radius:50px;
+font-weight:700;
+color:#2b1d14;
+}
+
+.footer{
+padding:25px;
+text-align:center;
+background:#1f140d;
+color:#f8ead5;
+}
+
+@media(max-width:1000px){
+
+.about-container{
+grid-template-columns:1fr;
+}
+
+.feature-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:45px;
+}
+
+.nav-links{
+display:none;
+}
+}
+
+</style>
+
 </head>
 
-<body><form id="form1" runat="server">
+<body>
 
-    <div class="navbar">
-        <div class="logo">Narrativa</div>
+<form runat="server">
 
-        <div class="nav-links">
-            <a href="Home.aspx">Home</a>
-            <a href="About.aspx">About</a>
-            <a href="Books.aspx">Books</a>
-            <a href="MyLibrary.aspx">My Library</a>
-            <a href="Contact.aspx">Contact</a>
-            <a href="Login.aspx">Login</a>
-        </div>
-    </div>
+<div class="navbar">
+<div class="logo">Narrativa</div>
 
-    <section class="hero">
-        <div class="badge">About Narrativa</div>
-    </section>
+<div class="nav-links">
+<a href="Home.aspx">Home</a>
+<a href="About.aspx">About</a>
+<a href="Books.aspx">Books</a>
+<a href="MyLibrary.aspx">My Library</a>
+<a href="Contact.aspx">Contact</a>
+</div>
+</div>
 
-    <section class="about-section">
-    </section>
+<section class="hero">
 
-    <section class="students-section">
-        <div class="section-title">Meet Our Team</div>
+<div class="hero-content">
 
-        <div class="students-grid">
+<h1>About Narrativa</h1>
 
-            <div class="student-card">
-                <div class="student-number">12970</div>
-                <h3>Taif M Alanazi</h3>
-                <p>Narrativa Project Team Member</p>
-            </div>
+<p>
+Narrativa is a modern digital library platform designed to provide
+an enjoyable reading experience through a clean interface,
+organized book collections, and powerful management tools.
+</p>
 
-            <div class="student-card">
-                <div class="student-number">12969</div>
-                <h3>Nourah F Alsahliy</h3>
-                <p>Narrativa Project Team Member</p>
-            </div>
+</div>
 
-            <div class="student-card">
-                <div class="student-number">13028</div>
-                <h3>Jwahr Mohammed Alenezi</h3>
-                <p>Narrativa Project Team Member</p>
-            </div>
+</section>
 
-            <div class="student-card">
-                <div class="student-number">12925</div>
-                <h3>Shouq Alsayed</h3>
-                <p>Narrativa Project Team Member</p>
-            </div>
+<section class="about">
 
-        </div>
-    </section>
+<div class="about-container">
 
-    <div class="footer">
-        © 2026 Narrativa — Smart Digital Library
-    </div>
+<div class="about-image">
+<img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80" />
+</div>
+
+<div class="about-text">
+
+<h2>Our Story</h2>
+
+<p>
+Narrativa was created to make books more accessible and easier
+to manage through a modern web platform. The system allows users
+to browse books, organize personal collections, and enjoy a smooth
+digital reading journey.
+</p>
+
+<br />
+
+<p>
+The project demonstrates practical implementation of database
+management, authentication systems, and user-friendly web design
+using ASP.NET Web Forms and SQL Server.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<h2 class="section-title">Platform Features</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="icon">📚</div>
+<h3>Book Catalog</h3>
+<p>Explore a rich collection of books through a simple interface.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🔍</div>
+<h3>Smart Search</h3>
+<p>Quickly find books and content with efficient search tools.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">💾</div>
+<h3>My Library</h3>
+<p>Save and manage favorite books in your personal collection.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">👤</div>
+<h3>User Accounts</h3>
+<p>Secure registration and login functionality.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">⚡</div>
+<h3>Fast Experience</h3>
+<p>Optimized navigation and responsive performance.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🛡️</div>
+<h3>Secure Platform</h3>
+<p>Reliable database and authentication management.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 Narrativa — Digital Library Platform
+</div>
 
 </form>
+
 </body>
 </html>
