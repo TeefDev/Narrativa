@@ -16,7 +16,7 @@ This project addresses the challenge of organizing and accessing educational res
 
 ---
 
-# Project Screenshots
+# Project Preview
 
 ![Home Page](Uploads/1.jpg)
 
