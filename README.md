@@ -126,4 +126,4 @@ Books are structured and categorized to improve accessibility and user experienc
 
 # Developer
 
-Taif M. Kareeri — TeefDev
+Teef M. Karyry — TeefDev
